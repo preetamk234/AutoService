@@ -20,8 +20,8 @@
             <tr>
                
                 <td>@Html.DisplayFor(m=>item.Name)</td>
-                <td><a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
-                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Details</a> | Delete </td>
+                <td><a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a> |Details
+                @*<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Details</a>*@ | Delete </td>
             </tr>
         }
     </table>
