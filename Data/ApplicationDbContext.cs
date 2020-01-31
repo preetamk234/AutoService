@@ -12,8 +12,8 @@ namespace AutoService.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-           
+            
         }
-        public DbSet<ServiceType> ServiceTypes { get; set; }
+        public DbSet<ServiceType> ServiceTypes { get; set; } 
     }
 }
