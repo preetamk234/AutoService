@@ -62,6 +62,35 @@ namespace AutoService.Controllers
             }
             return View(serviceType);
         }
+        //Get 
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+                return NotFound();
+            var data = await _db.ServiceTypes.SingleOrDefaultAsync(m => m.Id == id);
+            if (data == null)
+                return NotFound();
+            return View(data);
 
+        }
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+                return NotFound();
+            var data = await _db.ServiceTypes.SingleOrDefaultAsync(m => m.Id == id);
+            if (data == null)
+                return NotFound();
+            return View(data);
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var data = await _db.ServiceTypes.SingleOrDefaultAsync(m => m.Id == id);
+            _db.ServiceTypes.Remove(data);
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+            //return View("~/ServciceType/Index");
+        }
     }
 }
